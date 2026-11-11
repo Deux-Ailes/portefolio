@@ -20,36 +20,37 @@ export const content = {
       langLabel: 'Langue du site',
     },
     hero: {
-      role: 'Ingénieur cybersécurité / Concepteur logiciel',
-      title: "La cybersécurité, du besoin client jusqu'au code.",
-      text: 'Six ans entre conception logicielle et cybersécurité. Je pilote des déploiements IAM/PAM pour des grands comptes internationaux.',
+      title: 'La cybersécurité, du besoin au code.',
+      text: "Ingénieur cybersécurité et concepteur logiciel. Six ans d'expérience, aujourd'hui chef de projet IAM/PAM pour des grands comptes internationaux.",
       cv: 'Télécharger le CV',
       photoAlt: 'Portrait de Elliot Clerice',
     },
-    stats: [
-      { value: '6 ans', label: "d'expérience en conception logicielle et cybersécurité" },
-      { value: '6+', label: 'clients grands comptes déployés, en contexte international' },
-      { value: '100 %', label: 'de renouvellement des licences sur ces comptes' },
-      { value: '14 %', label: "du chiffre d'affaires de l'éditeur porté par ces déploiements" },
+    proof: [
+      { text: 'Plus de ' },
+      { text: '6 clients grands comptes', strong: true },
+      { text: ' déployés en contexte international, ' },
+      { text: '100 % des licences', strong: true },
+      { text: ' renouvelées, ' },
+      { text: "14 % du chiffre d'affaires", strong: true },
+      { text: " de l'éditeur." },
     ],
     expertise: {
       title: 'Trois métiers, un seul interlocuteur.',
-      text: "Je comprends l'enjeu de sécurité, je conçois la solution et je l'explique aux équipes qui vont l'utiliser.",
       items: [
         {
           title: 'Cybersécurité',
           text: 'Déploiement et personnalisation de solutions IAM/PAM : interfaces de conformité DORA et NIS2, automatisations sur mesure, optimisation du cycle de vie des ressources.',
-          tags: ['IAM', 'PAM', 'DORA', 'NIS2', 'CyberArk Defender'],
+          stack: 'IAM, PAM, DORA, NIS2, CyberArk Defender',
         },
         {
           title: 'Conception logicielle',
           text: "Développement back-end Java, de la modélisation des données jusqu'à l'API.",
-          tags: ['Java 8, 11, 17', 'Spring Boot', 'Hibernate', 'PostgreSQL', 'API REST'],
+          stack: 'Java 8, 11 et 17, Spring Boot, Hibernate, PostgreSQL, API REST',
         },
         {
           title: 'Gestion de projet',
           text: 'Capture de besoins, gestion des risques, formation et coordination entre consultants, R&D et équipes métier.',
-          tags: ['Grands comptes', 'POC', 'Formation', 'International'],
+          stack: 'Grands comptes, POC, Formation, International',
         },
       ],
     },
@@ -61,9 +62,9 @@ export const content = {
           company: 'Ignimission',
           role: 'Chef de projet cybersécurité, consultant grands comptes',
           points: [
-            "Coordination du déploiement du logiciel de l'éditeur chez plus de 6 clients grands comptes, avec 100 % de renouvellement des licences.",
+            "Coordination du déploiement du logiciel de l'éditeur chez plus de 6 clients grands comptes, avec 100 % de renouvellement des licences.",
             'Gestion de la phase de build sur trois environnements, de la capture du besoin à la réalisation de fonctions personnalisées : interfaces de conformité DORA/NIS2, automatisations IAM/PAM, optimisation du cycle de vie des ressources.',
-            "Taux d'activité (TACE) supérieur à 95 % sur l'activité de consultant.",
+            "Taux d'activité (TACE) supérieur à 95 % sur l'activité de consultant.",
             'Contribution à la R&D : documentation, outils internes pour accélérer les développements spécifiques, standardisation des échanges entre consultants et R&D.',
           ],
         },
@@ -80,9 +81,8 @@ export const content = {
       ],
     },
     highlights: {
-      title: 'Réalisations clés',
+      title: 'Également',
       items: [
-        "Déploiement du logiciel chez plus de 6 clients représentant 14 % du chiffre d'affaires, en menant plusieurs projets de front.",
         "Participation à des POC auprès de sociétés internationales, dont l'un a débouché sur un projet complet de 6 mois.",
         "Conception d'un outil de gestion administrative on-premise pour les accueils de loisirs (ALSH).",
       ],
@@ -113,8 +113,7 @@ export const content = {
       ],
     },
     contact: {
-      title: 'Un projet, un poste, une question ?',
-      text: 'Écrivez-moi, je réponds rapidement.',
+      title: 'Un projet, un poste, une question ?',
     },
     footer: 'Trélazé, France',
   },
@@ -131,36 +130,37 @@ export const content = {
       langLabel: 'Site language',
     },
     hero: {
-      role: 'Cybersecurity engineer / Software designer',
-      title: 'Cybersecurity, from client need to working code.',
-      text: 'Six years across software design and cybersecurity. I lead IAM/PAM rollouts for international key accounts.',
+      title: 'Cybersecurity, from need to code.',
+      text: 'Cybersecurity engineer and software designer. Six years of experience, now leading IAM/PAM projects for international key accounts.',
       cv: 'Download résumé',
       photoAlt: 'Portrait of Elliot Clerice',
     },
-    stats: [
-      { value: '6 yrs', label: 'of experience in software design and cybersecurity' },
-      { value: '6+', label: 'key account clients deployed, in an international setting' },
-      { value: '100%', label: 'licence renewal rate on those accounts' },
-      { value: '14%', label: "of the vendor's revenue carried by those deployments" },
+    proof: [
+      { text: 'More than ' },
+      { text: '6 key account clients', strong: true },
+      { text: ' deployed in an international setting, ' },
+      { text: '100% of licences', strong: true },
+      { text: ' renewed, ' },
+      { text: '14% of the vendor\u2019s revenue', strong: true },
+      { text: '.' },
     ],
     expertise: {
       title: 'Three roles, one point of contact.',
-      text: 'I understand the security stakes, design the solution and explain it to the teams who will use it.',
       items: [
         {
           title: 'Cybersecurity',
           text: 'Deployment and customisation of IAM/PAM solutions: DORA and NIS2 compliance interfaces, tailored automations, resource lifecycle optimisation.',
-          tags: ['IAM', 'PAM', 'DORA', 'NIS2', 'CyberArk Defender'],
+          stack: 'IAM, PAM, DORA, NIS2, CyberArk Defender',
         },
         {
           title: 'Software design',
           text: 'Java back-end development, from data modelling to the API.',
-          tags: ['Java 8, 11, 17', 'Spring Boot', 'Hibernate', 'PostgreSQL', 'REST APIs'],
+          stack: 'Java 8, 11 and 17, Spring Boot, Hibernate, PostgreSQL, REST APIs',
         },
         {
           title: 'Project management',
           text: 'Requirements gathering, risk management, training and coordination between consultants, R&D and business teams.',
-          tags: ['Key accounts', 'POC', 'Training', 'International'],
+          stack: 'Key accounts, POC, Training, International',
         },
       ],
     },
@@ -191,9 +191,8 @@ export const content = {
       ],
     },
     highlights: {
-      title: 'Key achievements',
+      title: 'Also',
       items: [
-        'Deployed the software at more than 6 clients representing 14% of revenue, running several projects in parallel.',
         'Took part in POCs with international companies, one of which led to a full 6-month project.',
         'Designed an on-premise administrative management tool for children’s leisure centres.',
       ],
@@ -225,7 +224,6 @@ export const content = {
     },
     contact: {
       title: 'A project, a role, a question?',
-      text: 'Send me an email, I reply quickly.',
     },
     footer: 'Trélazé, France',
   },
