@@ -8,8 +8,13 @@ Site personnel bilingue (FR / EN), construit avec Vite, Vue 3 et Tailwind CSS v4
 npm install
 npm run dev      # serveur local
 npm run build    # génère dist/
-npm run deploy   # build puis publication sur la branche gh-pages
 ```
+
+## Déploiement
+
+Chaque fusion dans `main` compile et publie le site sur GitHub Pages
+(`.github/workflows/deploy.yml`). Dans Settings > Pages, la source doit être
+« GitHub Actions ».
 
 ## Modifier le contenu
 
