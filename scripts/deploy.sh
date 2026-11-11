@@ -1,22 +1,11 @@
 #!/usr/bin/env sh
-
-# abort on errors
+# Builds the site and publishes dist/ to the gh-pages branch (GitHub Pages).
 set -e
 
-# build
 npm run build
-
-# navigate into the build output directory
 cd dist
-
-# if you are deploying to a custom domain
-echo 'elliot-clerice.fr' > CNAME
-
-git init
+git init -q
 git add -A
-git commit -m 'deploy'
-
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:deux-ailes/portefolio.git main:gh-pages
-
+git commit -qm 'deploy'
+git push -f git@github.com:deux-ailes/portefolio.git HEAD:gh-pages
 cd -
