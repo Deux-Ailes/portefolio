@@ -4,7 +4,7 @@ export const links = {
   email: 'clerice.elliot@outlook.fr',
   linkedin: 'https://www.linkedin.com/in/elliot-clerice/',
   github: 'https://github.com/Deux-Ailes',
-  cv: '/files/CV_Elliot_Clerice.pdf',
+  cv: `${import.meta.env.BASE_URL}files/CV_Elliot_Clerice.pdf`,
 }
 
 export const content = {
