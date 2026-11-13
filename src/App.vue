@@ -1,37 +1,18 @@
 <script setup>
-import { computed, ref, watchEffect } from 'vue'
 import { PhArrowUpRight, PhDownloadSimple } from '@phosphor-icons/vue'
 import { content, links } from './content.js'
 import portrait from './assets/portrait.webp'
 
-const LOCALES = ['fr', 'en']
+// Each language is its own page: index.html (fr) and en/index.html (en).
+const locale = document.documentElement.lang === 'en' ? 'en' : 'fr'
+const t = content[locale]
 
-function initialLocale() {
-  try {
-    const saved = localStorage.getItem('locale')
-    if (LOCALES.includes(saved)) return saved
-  } catch {
-    // Storage unavailable: fall back to the browser language.
-  }
-  return navigator.language?.toLowerCase().startsWith('fr') ? 'fr' : 'en'
-}
-
-const locale = ref(initialLocale())
-const t = computed(() => content[locale.value])
-
-function setLocale(value) {
-  locale.value = value
-  try {
-    localStorage.setItem('locale', value)
-  } catch {
-    // Preference simply will not persist.
-  }
-}
-
-watchEffect(() => {
-  document.documentElement.lang = locale.value
-  document.title = t.value.meta.title
-})
+// Path back to the site root, so links work on any domain or sub-path.
+const root = locale === 'en' ? '../' : './'
+const pages = [
+  { code: 'fr', href: root },
+  { code: 'en', href: `${root}en/` },
+]
 
 const year = new Date().getFullYear()
 </script>
@@ -50,17 +31,18 @@ const year = new Date().getFullYear()
         </nav>
 
         <div class="flex items-center gap-1" role="group" :aria-label="t.nav.langLabel">
-          <template v-for="(code, i) in LOCALES" :key="code">
+          <template v-for="(page, i) in pages" :key="page.code">
             <span v-if="i > 0" class="text-line" aria-hidden="true">/</span>
-            <button
-              type="button"
+            <a
+              :href="page.href"
+              :hreflang="page.code"
+              :lang="page.code"
               class="px-1 py-2 uppercase transition-colors"
-              :class="locale === code ? 'text-text' : 'text-mute hover:text-text'"
-              :aria-pressed="locale === code"
-              @click="setLocale(code)"
+              :class="locale === page.code ? 'text-text' : 'text-mute hover:text-text'"
+              :aria-current="locale === page.code ? 'page' : undefined"
             >
-              {{ code }}
-            </button>
+              {{ page.code }}
+            </a>
           </template>
         </div>
       </div>
@@ -92,7 +74,7 @@ const year = new Date().getFullYear()
               <PhArrowUpRight :size="18" weight="bold" aria-hidden="true" />
             </a>
             <a
-              :href="links.cv"
+              :href="root + links.cv"
               download
               class="inline-flex items-center gap-2 py-3 font-medium whitespace-nowrap text-text underline decoration-line underline-offset-8 transition-colors hover:decoration-text"
             >

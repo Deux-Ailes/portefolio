@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://deux-ailes.github.io/portefolio/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://deux-ailes.github.io/portefolio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://deux-ailes.github.io/portefolio/en/" />
+  </url>
+  <url>
+    <loc>https://deux-ailes.github.io/portefolio/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://deux-ailes.github.io/portefolio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://deux-ailes.github.io/portefolio/en/" />
+  </url>
+</urlset>

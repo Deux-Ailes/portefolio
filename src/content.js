@@ -4,14 +4,11 @@ export const links = {
   email: 'clerice.elliot@outlook.fr',
   linkedin: 'https://www.linkedin.com/in/elliot-clerice/',
   github: 'https://github.com/Deux-Ailes',
-  cv: `${import.meta.env.BASE_URL}files/CV_Elliot_Clerice.pdf`,
+  cv: 'files/CV_Elliot_Clerice.pdf',
 }
 
 export const content = {
   fr: {
-    meta: {
-      title: 'Elliot Clerice - Ingénieur cybersécurité et concepteur logiciel',
-    },
     nav: {
       expertise: 'Expertise',
       experience: 'Parcours',
@@ -119,9 +116,6 @@ export const content = {
   },
 
   en: {
-    meta: {
-      title: 'Elliot Clerice - Cybersecurity engineer and software designer',
-    },
     nav: {
       expertise: 'Expertise',
       experience: 'Experience',
