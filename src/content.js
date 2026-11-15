@@ -72,6 +72,23 @@ export const content = {
           role: "Chef de projet. Conception du moteur de décision, de l'agrégation des données et des écrans de gouvernance.",
           stack: 'CyberArk, Helix, Logstash',
         },
+        {
+          title: 'Une gouvernance complète des comptes à privilèges, alignée sur NIS2',
+          client: 'Client grand compte',
+          paragraphs: [
+            'NIS2 impose de suivre de bout en bout les comptes à hauts privilèges. Or les référentiels se multipliaient : comptes coffrés dans CyberArk, bases de données, serveurs, cas particuliers.',
+            "J'ai automatisé la récupération de ces référentiels et des comptes CyberArk, puis croisé l'ensemble des données pour les restituer dans quatre écrans que j'ai conçus.",
+          ],
+          pointsTitle: 'Quatre écrans de gouvernance',
+          points: [
+            'Comptes personnels',
+            'Comptes de bases de données',
+            'Évolution des taux de conformité par périmètre',
+            'Configuration des seuils et des périmètres',
+          ],
+          role: "Chef de projet. Conception des interfaces, agrégation des données en SQL, API et récupération des référentiels.",
+          stack: 'CyberArk, SQL, API',
+        },
       ],
     },
     experience: {
@@ -201,6 +218,23 @@ export const content = {
           ],
           role: 'Project manager. Designed the decision engine, the data aggregation and the governance screens.',
           stack: 'CyberArk, Helix, Logstash',
+        },
+        {
+          title: 'End-to-end governance of privileged accounts, aligned with NIS2',
+          client: 'Key account client',
+          paragraphs: [
+            'NIS2 requires privileged accounts to be tracked end to end. Yet the repositories kept multiplying: accounts vaulted in CyberArk, databases, servers, special cases.',
+            'I automated the retrieval of those repositories and of the CyberArk accounts, then cross-referenced all the data to present it in four screens that I designed.',
+          ],
+          pointsTitle: 'Four governance screens',
+          points: [
+            'Personal accounts',
+            'Database accounts',
+            'Compliance rate trends by scope',
+            'Threshold and scope configuration',
+          ],
+          role: 'Project manager. Designed the interfaces, the SQL data aggregation, the APIs and the repository retrieval.',
+          stack: 'CyberArk, SQL, API',
         },
       ],
     },

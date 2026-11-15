@@ -139,11 +139,11 @@ const year = new Date().getFullYear()
       <div class="mt-12 space-y-20">
         <article v-for="(item, i) in t.cases.items" :key="i" v-reveal class="rounded-md bg-panel p-7 sm:p-10 md:p-12">
           <p class="text-mute">{{ item.client }}</p>
-          <h3 class="mt-2 max-w-[24ch] text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl lg:text-4xl">
+          <h3 class="mt-2 max-w-[30ch] text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl lg:text-4xl">
             {{ item.title }}
           </h3>
 
-          <dl class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
+          <dl v-if="item.metric" class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
             <div>
               <dt class="text-sm text-mute">{{ t.cases.beforeLabel }}</dt>
               <dd class="mt-1 text-5xl font-medium tracking-tighter text-mute sm:text-6xl">
@@ -163,6 +163,16 @@ const year = new Date().getFullYear()
             <p v-for="(para, j) in item.paragraphs" :key="j" class="mb-4 break-inside-avoid" :class="j === 0 ? '' : 'text-mute'">
               {{ para }}
             </p>
+          </div>
+
+          <div v-if="item.points" class="mt-6">
+            <h4 class="font-medium">{{ item.pointsTitle }}</h4>
+            <ol class="mt-4 grid gap-x-12 gap-y-3 text-mute sm:grid-cols-2">
+              <li v-for="(point, j) in item.points" :key="j" class="flex gap-3">
+                <span class="font-mono text-sm leading-[1.75] text-accent" aria-hidden="true">{{ j + 1 }}</span>
+                {{ point }}
+              </li>
+            </ol>
           </div>
 
           <dl class="mt-8 grid gap-6 border-t border-line pt-8 md:grid-cols-[2fr_1fr] md:gap-12">
