@@ -159,6 +159,13 @@ const year = new Date().getFullYear()
             <p class="max-w-[24ch] pb-1.5 text-mute">{{ item.metric.label }}</p>
           </dl>
 
+          <div v-if="item.result" class="mt-10">
+            <p class="text-sm text-mute">{{ t.cases.resultLabel }}</p>
+            <p class="mt-1.5 max-w-[36ch] text-xl leading-snug font-medium text-balance text-accent sm:text-2xl">
+              {{ item.result }}
+            </p>
+          </div>
+
           <div class="mt-10 gap-12 leading-relaxed md:columns-2">
             <p v-for="(para, j) in item.paragraphs" :key="j" class="mb-4 break-inside-avoid" :class="j === 0 ? '' : 'text-mute'">
               {{ para }}
