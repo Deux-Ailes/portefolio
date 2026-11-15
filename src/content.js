@@ -11,6 +11,7 @@ export const content = {
   fr: {
     nav: {
       expertise: 'Expertise',
+      cases: 'Réalisations',
       experience: 'Parcours',
       education: 'Formation',
       contact: 'Me contacter',
@@ -48,6 +49,28 @@ export const content = {
           title: 'Gestion de projet',
           text: 'Capture de besoins, gestion des risques, formation et coordination entre consultants, R&D et équipes métier.',
           stack: 'Grands comptes, POC, Formation, International',
+        },
+      ],
+    },
+    cases: {
+      title: 'Réalisations',
+      beforeLabel: 'Avant',
+      afterLabel: 'Après',
+      roleLabel: 'Mon rôle',
+      stackLabel: 'Outils',
+      items: [
+        {
+          title: 'Des accès à privilèges accordés en 3 minutes au lieu de 24 heures',
+          client: 'Opérateur télécom britannique',
+          metric: { before: '24 h', after: '3 min', label: 'pour déléguer des droits sur un compte à privilèges' },
+          paragraphs: [
+            "Chaque demande d'accès à un compte PAM passait par un ticket Helix validé à la main : une personne vérifiait chaque règle, une par une, auprès de plusieurs sources.",
+            "J'ai conçu un moteur de décision qui applique ces règles automatiquement et les expose à l'utilisateur, qui sait pourquoi un accès est accordé ou refusé. Il croise Helix, CyberArk et des référentiels externes, en ne récupérant les données qu'au moment où une décision en a besoin, ce qui évite les requêtes inutiles et la saturation des API.",
+            "Les droits sont accordés en just-in-time. Les sessions CyberArk ouvertes sont surveillées et revalidées par le moteur, qui confirme leur légitimité auprès des sources externes.",
+            'Décisions, validations et erreurs sont remontées via Logstash, et les gestionnaires PAM et Helix suivent les sessions en cours grâce à des indicateurs dédiés.',
+          ],
+          role: "Chef de projet. Conception du moteur de décision, de l'agrégation des données et des écrans de gouvernance.",
+          stack: 'CyberArk, Helix, Logstash',
         },
       ],
     },
@@ -118,6 +141,7 @@ export const content = {
   en: {
     nav: {
       expertise: 'Expertise',
+      cases: 'Case studies',
       experience: 'Experience',
       education: 'Education',
       contact: 'Contact me',
@@ -155,6 +179,28 @@ export const content = {
           title: 'Project management',
           text: 'Requirements gathering, risk management, training and coordination between consultants, R&D and business teams.',
           stack: 'Key accounts, POC, Training, International',
+        },
+      ],
+    },
+    cases: {
+      title: 'Case studies',
+      beforeLabel: 'Before',
+      afterLabel: 'After',
+      roleLabel: 'My role',
+      stackLabel: 'Tools',
+      items: [
+        {
+          title: 'Privileged access granted in 3 minutes instead of 24 hours',
+          client: 'British telecom operator',
+          metric: { before: '24 h', after: '3 min', label: 'to delegate rights on a privileged account' },
+          paragraphs: [
+            'Every request for access to a PAM account went through a Helix ticket validated by hand: someone checked each rule, one by one, against several sources.',
+            'I designed a decision engine that applies those rules automatically and exposes them to the user, who knows why access is granted or denied. It combines Helix, CyberArk and external repositories, fetching data only when a decision needs it, which avoids unnecessary requests and API overload.',
+            'Rights are granted just in time. Open CyberArk sessions are monitored and revalidated by the engine, which confirms their legitimacy against the external sources.',
+            'Decisions, validations and errors are reported through Logstash, and PAM and Helix managers follow ongoing sessions through dedicated indicators.',
+          ],
+          role: 'Project manager. Designed the decision engine, the data aggregation and the governance screens.',
+          stack: 'CyberArk, Helix, Logstash',
         },
       ],
     },
