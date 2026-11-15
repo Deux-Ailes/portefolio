@@ -25,6 +25,7 @@ const year = new Date().getFullYear()
       <div class="flex items-center gap-6 text-sm sm:gap-8">
         <nav class="hidden items-center gap-8 text-mute md:flex" aria-label="Sections">
           <a href="#expertise" class="transition-colors hover:text-text">{{ t.nav.expertise }}</a>
+          <a href="#cases" class="transition-colors hover:text-text">{{ t.nav.cases }}</a>
           <a href="#experience" class="transition-colors hover:text-text">{{ t.nav.experience }}</a>
           <a href="#education" class="transition-colors hover:text-text">{{ t.nav.education }}</a>
           <a href="#contact" class="transition-colors hover:text-text">{{ t.nav.contact }}</a>
@@ -127,6 +128,53 @@ const year = new Date().getFullYear()
             <p class="max-w-[58ch] text-lg leading-relaxed">{{ item.text }}</p>
             <p class="mt-3 font-mono text-sm leading-relaxed text-mute">{{ item.stack }}</p>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Case studies: before/after figure, then the story in two columns -->
+    <section id="cases" class="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
+      <h2 v-reveal class="text-3xl font-semibold tracking-tight sm:text-4xl">{{ t.cases.title }}</h2>
+
+      <div class="mt-12 space-y-20">
+        <article v-for="(item, i) in t.cases.items" :key="i" v-reveal class="rounded-md bg-panel p-7 sm:p-10 md:p-12">
+          <p class="text-mute">{{ item.client }}</p>
+          <h3 class="mt-2 max-w-[24ch] text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-3xl lg:text-4xl">
+            {{ item.title }}
+          </h3>
+
+          <dl class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
+            <div>
+              <dt class="text-sm text-mute">{{ t.cases.beforeLabel }}</dt>
+              <dd class="mt-1 text-5xl font-medium tracking-tighter text-mute sm:text-6xl">
+                {{ item.metric.before }}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-sm text-mute">{{ t.cases.afterLabel }}</dt>
+              <dd class="mt-1 text-5xl font-medium tracking-tighter text-accent sm:text-6xl">
+                {{ item.metric.after }}
+              </dd>
+            </div>
+            <p class="max-w-[24ch] pb-1.5 text-mute">{{ item.metric.label }}</p>
+          </dl>
+
+          <div class="mt-10 gap-12 leading-relaxed md:columns-2">
+            <p v-for="(para, j) in item.paragraphs" :key="j" class="mb-4 break-inside-avoid" :class="j === 0 ? '' : 'text-mute'">
+              {{ para }}
+            </p>
+          </div>
+
+          <dl class="mt-8 grid gap-6 border-t border-line pt-8 md:grid-cols-[2fr_1fr] md:gap-12">
+            <div>
+              <dt class="text-sm text-mute">{{ t.cases.roleLabel }}</dt>
+              <dd class="mt-1.5 max-w-[52ch] leading-relaxed">{{ item.role }}</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-mute">{{ t.cases.stackLabel }}</dt>
+              <dd class="mt-1.5 font-mono text-sm leading-relaxed">{{ item.stack }}</dd>
+            </div>
+          </dl>
         </article>
       </div>
     </section>
