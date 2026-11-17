@@ -1,10 +1,12 @@
 <script setup>
 import { PhArrowUpRight, PhDownloadSimple } from '@phosphor-icons/vue'
 import { content, links } from './content.js'
-import portrait from './assets/portrait.webp'
+import CaseDiagram from './components/CaseDiagram.vue'
 
 // Each language is its own page: index.html (fr) and en/index.html (en).
-const locale = document.documentElement.lang === 'en' ? 'en' : 'fr'
+// The locale comes from the page, both at build time and in the browser.
+const props = defineProps({ locale: { type: String, default: 'fr' } })
+const locale = props.locale === 'en' ? 'en' : 'fr'
 const t = content[locale]
 
 // Path back to the site root, so links work on any domain or sub-path.
@@ -86,7 +88,7 @@ const year = new Date().getFullYear()
         </div>
 
         <img
-          :src="portrait"
+          :src="root + 'portrait.webp'"
           :alt="t.hero.photoAlt"
           width="1100"
           height="1320"
@@ -143,21 +145,23 @@ const year = new Date().getFullYear()
             {{ item.title }}
           </h3>
 
-          <dl v-if="item.metric" class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
-            <div>
-              <dt class="text-sm text-mute">{{ t.cases.beforeLabel }}</dt>
-              <dd class="mt-1 text-5xl font-medium tracking-tighter text-mute sm:text-6xl">
-                {{ item.metric.before }}
-              </dd>
-            </div>
-            <div>
-              <dt class="text-sm text-mute">{{ t.cases.afterLabel }}</dt>
-              <dd class="mt-1 text-5xl font-medium tracking-tighter text-accent sm:text-6xl">
-                {{ item.metric.after }}
-              </dd>
-            </div>
+          <div v-if="item.metric" class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
+            <dl class="flex flex-wrap items-end gap-x-10 gap-y-4 sm:gap-x-16">
+              <div>
+                <dt class="text-sm text-mute">{{ t.cases.beforeLabel }}</dt>
+                <dd class="mt-1 text-5xl font-medium tracking-tighter text-mute sm:text-6xl">
+                  {{ item.metric.before }}
+                </dd>
+              </div>
+              <div>
+                <dt class="text-sm text-mute">{{ t.cases.afterLabel }}</dt>
+                <dd class="mt-1 text-5xl font-medium tracking-tighter text-accent sm:text-6xl">
+                  {{ item.metric.after }}
+                </dd>
+              </div>
+            </dl>
             <p class="max-w-[24ch] pb-1.5 text-mute">{{ item.metric.label }}</p>
-          </dl>
+          </div>
 
           <div v-if="item.result" class="mt-10">
             <p class="text-sm text-mute">{{ t.cases.resultLabel }}</p>
@@ -165,6 +169,13 @@ const year = new Date().getFullYear()
               {{ item.result }}
             </p>
           </div>
+
+          <CaseDiagram
+            v-if="item.diagram"
+            :diagram="item.diagram"
+            :label="`${t.cases.diagramLabel} : ${item.title}`"
+            :legend="t.cases.mineLegend"
+          />
 
           <div class="mt-10 gap-12 leading-relaxed md:columns-2">
             <p v-for="(para, j) in item.paragraphs" :key="j" class="mb-4 break-inside-avoid" :class="j === 0 ? '' : 'text-mute'">
