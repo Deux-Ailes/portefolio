@@ -37,15 +37,16 @@ body {
   border-radius: 4px;
 }
 
-/* Scroll reveal: content rises once as it enters the viewport. */
-.reveal {
+/* Scroll reveal: content rises once as it enters the viewport.
+   Only applied once JavaScript runs, so the static HTML stays readable. */
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
     opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -66,7 +67,7 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .reveal,
+  .js .reveal,
   .rise {
     opacity: 1;
     transform: none;

@@ -57,12 +57,50 @@ export const content = {
       beforeLabel: 'Avant',
       afterLabel: 'Après',
       resultLabel: 'Résultat',
+      diagramLabel: 'Schéma de fonctionnement',
+      mineLegend: 'Encadré ambre : ma contribution',
       roleLabel: 'Mon rôle',
       stackLabel: 'Outils',
       items: [
         {
           title: 'Des accès à privilèges accordés en 3 minutes au lieu de 24 heures',
           client: 'Opérateur télécom britannique',
+          diagram: {
+            steps: [
+              {
+                title: "Ticket Helix",
+                items: [
+                  "Demande d'accès à un compte PAM"
+                ]
+              },
+              {
+                title: "Moteur de décision",
+                items: [
+                  "Règles visibles par l'utilisateur",
+                  "Données à la demande : Helix, CyberArk, référentiels externes"
+                ],
+                mine: true
+              },
+              {
+                title: "Accès just-in-time",
+                items: [
+                  "Session CyberArk ouverte"
+                ]
+              },
+              {
+                title: "Gouvernance",
+                items: [
+                  "Traces Logstash",
+                  "Indicateurs pour les gestionnaires"
+                ],
+                mine: true
+              }
+            ],
+            note: {
+              icon: "loop",
+              text: "Chaque session ouverte est revalidée par le moteur de décision."
+            }
+          },
           metric: { before: '24 h', after: '3 min', label: 'pour déléguer des droits sur un compte à privilèges' },
           paragraphs: [
             "Chaque demande d'accès à un compte PAM passait par un ticket Helix validé à la main : une personne vérifiait chaque règle, une par une, auprès de plusieurs sources.",
@@ -76,17 +114,46 @@ export const content = {
         {
           title: 'Une gouvernance complète des comptes à privilèges, alignée sur NIS2',
           client: 'Assureur français',
+          diagram: {
+            steps: [
+              {
+                title: "Référentiels",
+                items: [
+                  "Comptes coffrés CyberArk",
+                  "Bases de données",
+                  "Serveurs"
+                ]
+              },
+              {
+                title: "Récupération automatique",
+                items: [
+                  "Référentiels et comptes CyberArk, via API"
+                ],
+                mine: true
+              },
+              {
+                title: "Croisement des données",
+                items: [
+                  "Agrégation en SQL"
+                ],
+                mine: true
+              },
+              {
+                title: "4 écrans de gouvernance",
+                items: [
+                  "Comptes personnels",
+                  "Comptes de bases de données",
+                  "Taux de conformité par périmètre",
+                  "Seuils et périmètres"
+                ],
+                mine: true
+              }
+            ]
+          },
           result: "Une visibilité complète, de bout en bout, sur chaque compte, pour prouver la conformité NIS2 en cas d'audit.",
           paragraphs: [
             'NIS2 impose de suivre de bout en bout les comptes à hauts privilèges. Or les référentiels se multipliaient : comptes coffrés dans CyberArk, bases de données, serveurs, cas particuliers.',
             "J'ai automatisé la récupération de ces référentiels et des comptes CyberArk, puis croisé l'ensemble des données pour les restituer dans quatre écrans que j'ai conçus.",
-          ],
-          pointsTitle: 'Quatre écrans de gouvernance',
-          points: [
-            'Comptes personnels',
-            'Comptes de bases de données',
-            'Évolution des taux de conformité par périmètre',
-            'Configuration des seuils et des périmètres',
           ],
           role: "Chef de projet. Conception des interfaces, agrégation des données en SQL, API et récupération des référentiels.",
           stack: 'CyberArk, SQL, API',
@@ -94,6 +161,41 @@ export const content = {
         {
           title: 'Refonte du module de gestion du temps et de la déclaration de présence',
           client: 'Kelio, éditeur de logiciels',
+          diagram: {
+            steps: [
+              {
+                title: "Interface",
+                items: [
+                  "Actions courantes en moins de 3 clics"
+                ]
+              },
+              {
+                title: "1 service applicatif",
+                items: [
+                  "Point d'entrée et web services"
+                ],
+                mine: true
+              },
+              {
+                title: "4 services unitaires",
+                items: [
+                  "Logique métier du module"
+                ],
+                mine: true
+              },
+              {
+                title: "Une dizaine d'objets Hibernate",
+                items: [
+                  "Beans et fabrique Hibernate"
+                ],
+                mine: true
+              }
+            ],
+            note: {
+              icon: "tests",
+              text: "Tests de bout en bout et mocks (JUnit 4, Mockito), tests de performance sur plus de 50 000 salariés."
+            }
+          },
           result: 'Les actions les plus utilisées par les salariés et les exploitants en moins de 3 clics, et un calculateur plus performant.',
           paragraphs: [
             "L'interface de gestion du temps et de déclaration de présence avait vieilli : elle n'était plus en phase avec les standards de qualité ni avec les attentes en matière d'UX/UI. Le front et le back ont été entièrement revus.",
@@ -219,12 +321,50 @@ export const content = {
       beforeLabel: 'Before',
       afterLabel: 'After',
       resultLabel: 'Result',
+      diagramLabel: 'How it works',
+      mineLegend: 'Amber outline: my part',
       roleLabel: 'My role',
       stackLabel: 'Tools',
       items: [
         {
           title: 'Privileged access granted in 3 minutes instead of 24 hours',
           client: 'British telecom operator',
+          diagram: {
+            steps: [
+              {
+                title: "Helix ticket",
+                items: [
+                  "Request for a PAM account"
+                ]
+              },
+              {
+                title: "Decision engine",
+                items: [
+                  "Rules visible to the user",
+                  "Data on demand: Helix, CyberArk, external repositories"
+                ],
+                mine: true
+              },
+              {
+                title: "Just-in-time access",
+                items: [
+                  "CyberArk session opened"
+                ]
+              },
+              {
+                title: "Governance",
+                items: [
+                  "Logstash traces",
+                  "Indicators for managers"
+                ],
+                mine: true
+              }
+            ],
+            note: {
+              icon: "loop",
+              text: "Every open session is revalidated by the decision engine."
+            }
+          },
           metric: { before: '24 h', after: '3 min', label: 'to delegate rights on a privileged account' },
           paragraphs: [
             'Every request for access to a PAM account went through a Helix ticket validated by hand: someone checked each rule, one by one, against several sources.',
@@ -238,17 +378,46 @@ export const content = {
         {
           title: 'End-to-end governance of privileged accounts, aligned with NIS2',
           client: 'French insurance group',
+          diagram: {
+            steps: [
+              {
+                title: "Repositories",
+                items: [
+                  "CyberArk vaulted accounts",
+                  "Databases",
+                  "Servers"
+                ]
+              },
+              {
+                title: "Automatic retrieval",
+                items: [
+                  "Repositories and CyberArk accounts, via APIs"
+                ],
+                mine: true
+              },
+              {
+                title: "Data cross-referencing",
+                items: [
+                  "SQL aggregation"
+                ],
+                mine: true
+              },
+              {
+                title: "4 governance screens",
+                items: [
+                  "Personal accounts",
+                  "Database accounts",
+                  "Compliance rate by scope",
+                  "Thresholds and scopes"
+                ],
+                mine: true
+              }
+            ]
+          },
           result: 'Full end-to-end visibility on every account, to prove NIS2 compliance in the event of an audit.',
           paragraphs: [
             'NIS2 requires privileged accounts to be tracked end to end. Yet the repositories kept multiplying: accounts vaulted in CyberArk, databases, servers, special cases.',
             'I automated the retrieval of those repositories and of the CyberArk accounts, then cross-referenced all the data to present it in four screens that I designed.',
-          ],
-          pointsTitle: 'Four governance screens',
-          points: [
-            'Personal accounts',
-            'Database accounts',
-            'Compliance rate trends by scope',
-            'Threshold and scope configuration',
           ],
           role: 'Project manager. Designed the interfaces, the SQL data aggregation, the APIs and the repository retrieval.',
           stack: 'CyberArk, SQL, API',
@@ -256,6 +425,41 @@ export const content = {
         {
           title: 'Redesign of the time management and attendance declaration module',
           client: 'Kelio, software vendor',
+          diagram: {
+            steps: [
+              {
+                title: "Interface",
+                items: [
+                  "Common actions in fewer than 3 clicks"
+                ]
+              },
+              {
+                title: "1 application service",
+                items: [
+                  "Entry point and web services"
+                ],
+                mine: true
+              },
+              {
+                title: "4 unit services",
+                items: [
+                  "Business logic of the module"
+                ],
+                mine: true
+              },
+              {
+                title: "About ten Hibernate objects",
+                items: [
+                  "Beans and Hibernate factory"
+                ],
+                mine: true
+              }
+            ],
+            note: {
+              icon: "tests",
+              text: "End-to-end tests and mocks (JUnit 4, Mockito), performance tests on more than 50,000 employees."
+            }
+          },
           result: 'The actions employees and operators use most in fewer than 3 clicks, and a faster calculation engine.',
           paragraphs: [
             'The time management and attendance declaration interface had aged: it no longer met quality standards or UX/UI expectations. Both the front end and the back end were fully reworked.',
